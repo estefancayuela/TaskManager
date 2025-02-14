@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from .models import Task, Project
+from .forms import CreateNewTask
 
 
 # Create your views here.
@@ -21,3 +22,14 @@ def tasks(request):
     #t=get_object_or_404(Task, id=id)
     task_list = Task.objects.all()
     return render (request, 'tasks.html', {'task_list': task_list})
+
+def create_task(request):
+    if request.method == 'GET':
+        return render(request, 'create_task.html', {'form': CreateNewTask()})
+    else:
+        Task.objects.create(
+            title=request.POST['title'],
+            description=request.POST['description'],
+            project_id=1
+        )
+        return redirect('/tasks/')
