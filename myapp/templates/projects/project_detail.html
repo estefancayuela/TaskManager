@@ -1,0 +1,10 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+
+    <h1>{{ project.name }}</h1>
+    <p><a href="/projects/">Back</a></p>
+    {% for single_task in task_filtered %}
+        <p>{{ single_task.title }}</p>
+        <p>{{ single_task.description }}</p>
+    {% endfor %}
+{% endblock %}

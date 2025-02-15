@@ -1,8 +1,11 @@
 {% extends 'layouts/base.html' %}
 {% block content %}
 <h1>Projects</h1>
+<button onclick="window.location.href='/create_project/'">Create new project</button>
 {% for project in project_list %}
+<a href="/projects/{{ project.id }}">
     <h2>{{ project.name }}</h2>
+</a>
 {% endfor %}
 
 {% endblock %}

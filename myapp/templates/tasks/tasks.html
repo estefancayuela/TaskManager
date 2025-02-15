@@ -6,10 +6,8 @@
 
 {% for task in task_list %}
 {% if task.done == False %}
-    <h2>{{ task.title }}</h2>
+    <h2>{{ task.title }} - {{ task.project.name}} </h2>
     <p><b>{{ task.description }}</b></p>
-    <p>{{ task.project.name }}
-    </p>
     <button>Done</button>
     <button>Delete</button>
 {% endif %}
