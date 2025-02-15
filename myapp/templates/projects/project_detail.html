@@ -2,9 +2,14 @@
 {% block content %}
 
     <h1>{{ project.name }}</h1>
-    <p><a href="/projects/">Back</a></p>
+    <p><a href="{% url 'all_projects' %}">Back</a></p>
+    
     {% for single_task in task_filtered %}
-        <p>{{ single_task.title }}</p>
+        <b><p>{{ single_task.title }}</p></b>
         <p>{{ single_task.description }}</p>
     {% endfor %}
+    <form method="post">
+        {% csrf_token %}
+        <button>New task</button>
+    </form>
 {% endblock %}

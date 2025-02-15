@@ -8,8 +8,6 @@ class Project(models.Model):
     def __str__(self):
         return self.name
 
-#Test
-
 class Task(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField()

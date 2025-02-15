@@ -3,9 +3,11 @@
 <h1>Projects</h1>
 <button onclick="window.location.href='/create_project/'">Create new project</button>
 {% for project in project_list %}
-<a href="/projects/{{ project.id }}">
-    <h2>{{ project.name }}</h2>
+<a href="{% url 'project_details' project.id %}"><h2>{{ project.name }}</h2></a>
+<a href="{% url 'delete_project' project.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar este proyecto?');">
+    <button>
+        Delete
+    </button>
 </a>
 {% endfor %}
-
 {% endblock %}
