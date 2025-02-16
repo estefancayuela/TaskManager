@@ -31,7 +31,7 @@ def project_detail(request, id):
         return render(request, 
                     'projects/project_detail.html', 
                     {'project': project, 'task_filtered': task_filtered})
-    elif request.method == 'POST':
+    else:
         return redirect('/create_task/%s' % id)
 
 
@@ -51,15 +51,20 @@ def create_task(request, id):
         return render(request, 
                       'tasks/create_task.html', 
                       {'form': CreateNewTask()})
-    
-    elif request.method == 'POST':
+    else:
         Task.objects.create(
             title=request.POST['title'],
             description=request.POST['description'],
             project_id=id,)
-        return redirect({'/projects/%s' % id})
+        return redirect('/projects/%s' % id)
 
 def delete_task(request, id):
     TaskToDelete = get_object_or_404(Task, id=id)
     TaskToDelete.delete()
     return redirect('/tasks/')
+
+def done_task(request, id):
+    task = get_object_or_404(Task, id=id)
+    task.done = True
+    task.save()
+    return redirect('/projects/%s' % task.project_id)

@@ -8,7 +8,11 @@
 {% if task.done == False %}
     <h2>{{ task.title }} - {{ task.project.name}} </h2>
     <p><b>{{ task.description }}</b></p>
-    <button>Done</button>
+    <a href="{% url 'done_task' task.id %}">
+        <button>
+            Done
+        </button>
+    </a>
     <a href="{% url 'delete_task' task.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta tarea?');">
         <button>
             Delete

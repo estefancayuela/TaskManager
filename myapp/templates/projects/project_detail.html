@@ -7,8 +7,13 @@
     {% for single_task in task_filtered %}
         <b><p>{{ single_task.title }}</p></b>
         <p>{{ single_task.description }}</p>
+        <a href="{% url 'done_task' single_task.id %}">
+            <button>
+                Done
+            </button>
+        </a>
     {% endfor %}
-    <form method="post">
+    <form method="POST">
         {% csrf_token %}
         <button>New task</button>
     </form>
