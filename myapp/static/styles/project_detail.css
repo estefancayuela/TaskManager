@@ -1,0 +1,38 @@
+section{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+header{
+    padding-top: 25px;
+}
+header h1{
+    font-size: 35px;
+    color: #f0c46f;
+    margin-bottom: 0.5em;
+    display: inline;
+    margin-right: 10px;
+}
+.tasks{
+    padding-left: 10px;
+    margin-left: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+}
+.tasks div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tasks h2{
+    display: inline;
+    color: #f8de88;
+    font-size: 30px;
+}
+div img{
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+}
+.tasks p{
+    margin-left: 10px;
+}

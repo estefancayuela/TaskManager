@@ -1,13 +1,22 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
+{% block extra_head %}
+<title>Projects</title>
+<link rel="stylesheet" href="{% static 'styles/projects.css' %}">
+{% endblock %}
 {% block content %}
-<h1>Projects</h1>
-<button onclick="window.location.href='/create_project/'">Create new project</button>
-{% for project in project_list %}
-<a href="{% url 'project_details' project.id %}"><h2>{{ project.name }}</h2></a>
-<a href="{% url 'delete_project' project.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar este proyecto?');">
-    <button>
-        Delete
-    </button>
-</a>
-{% endfor %}
+<section>
+    <header>
+        <h1>Projects</h1>
+        <a href="{% url 'create_project' %}"><img src="{% static 'plus_green.png' %}" alt="Plus green icon"></a>
+    </header>
+        {{ message }}
+    {% for project in project_list %}
+    <div>
+        <a href="{% url 'project_details' project.id %}"><h2>{{ project.name }}</h2></a>
+        <a href="{% url 'delete_project' project.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar este proyecto?');"><img src="{% static 'trash.png' %}" alt="Trash icon"></a>
+    </div>
+    {% endfor %}
+    
+</section>
 {% endblock %}

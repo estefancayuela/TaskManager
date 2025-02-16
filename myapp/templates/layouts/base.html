@@ -4,17 +4,18 @@
     {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'styles/basic.css' %}">
-    <title>Django Project</title>
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}">
+    {% block extra_head %}
+    <title>Wachin</title>
+    {% endblock %}
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/projects">Projects</a></li>
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="{% url 'all_projects' %}">Projects</a></li>
         </ul>
     </nav>
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
 </body>
 </html>

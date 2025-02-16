@@ -1,20 +1,42 @@
 {% extends 'layouts/base.html' %}
+{% load static %}
+{% block extra_head %}
+<title>Projects</title>
+<link rel="stylesheet" href="{% static 'styles/project_detail.css' %}">
+{% endblock %}
 {% block content %}
-
-    <h1>{{ project.name }}</h1>
-    <p><a href="{% url 'all_projects' %}">Back</a></p>
-    
-    {% for single_task in task_filtered %}
-        <b><p>{{ single_task.title }}</p></b>
-        <p>{{ single_task.description }}</p>
-        <a href="{% url 'done_task' single_task.id %}">
-            <button>
-                Done
+    <section>
+        <header>
+            <h1>{{ project.name }}</h1>
+            <p><a href="{% url 'all_projects' %}">Back</a></p>
+        </header>
+        <div class="tasks">
+            {% for single_task in task_filtered %}
+                <div>
+                    <div>
+                        <h2>{{ single_task.title }}</h2>
+                        <a href="{% url 'done_task' single_task.id %}"><img src="{% static 'check.png' %}" alt=""></a>
+                    </div>
+                    <a href="{% url 'delete_task' single_task.id %}"><img src="{% static 'trash.png' %}" alt=""></a>
+                </div>
+                <p>{{ single_task.description }}</p>
+            {% endfor %}
+        </div>
+        <form method="POST">
+            {% csrf_token %}
+            <button>New task</button>
+        </form>
+        <label><input type="checkbox"> Show done tasks</label>
+        <a href=" {% url 'delete_done_tasks' project.id %} ">
+            <button onclick="return confirm('¿Estás seguro de que quieres eliminar todas las tareas?');">
+                Delete all done tasks
             </button>
         </a>
-    {% endfor %}
-    <form method="POST">
-        {% csrf_token %}
-        <button>New task</button>
-    </form>
+        {% for single_task in task_done %}
+            <b><p>{{ single_task.title }}</p></b>
+            <p>{{ single_task.description }}</p>
+            <a href="{% url 'done_task' single_task.id %}"><button>Undone</button></a>
+            <a href="{% url 'delete_task' single_task.id %}"><button>Delete</button></a>
+        {% endfor %}
+    </section>
 {% endblock %}

@@ -1,0 +1,37 @@
+/* Paleta
+https://paletadecolores.com.mx/paleta/ff9934/ffc018/f8fef4/cde54e/b3c631/
+*/
+body{
+    background-color: var(--background-color);
+    color: var(--font-color);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    --background-color: #202020;
+    --font-color: #fff;
+}
+nav{
+    margin: 0;
+    padding: 0;
+}
+nav ul{
+    margin: 0;
+    padding: 10px;
+    list-style-type: none;
+    text-align: center;
+    background-color: #ffc018;
+}
+nav ul li{
+    display: inline;
+    margin:0;
+    padding: 0;
+}
+nav ul li a{
+    padding: 10.5px;
+    text-decoration: none;
+    color: black;
+}
+nav ul li a:hover{
+    background-color: #ff9934;
+    color: var(--font-color);
+}
