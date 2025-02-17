@@ -8,7 +8,7 @@
 <section>
     <header>
         <h1>Projects</h1>
-        <a href="{% url 'create_project' %}"><img src="{% static 'plus_green.png' %}" alt="Plus green icon"></a>
+        <a href="{% url 'create_project' %}"><img src="{% static 'img/plus_green.png' %}" alt="Plus green icon"></a>
     </header>
     {% if not project_list %}
         <p>It seems like you haven't created a project yet...</p>
@@ -16,7 +16,7 @@
     {% for project in project_list %}
     <div class="project-container">
         <a href="{% url 'project_details' project.id %}"><h2>{{ project.name }}</h2></a>
-        <a href="{% url 'delete_project' project.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar este proyecto?');"><img src="{% static 'trash.png' %}" alt="Trash icon"></a>
+        <a href="{% url 'delete_project' project.id %}" onclick="return confirm('¿Estás seguro de que quieres eliminar este proyecto?');"><img src="{% static 'img/trash.png' %}" alt="Trash icon"></a>
     </div>
     {% endfor %}
     

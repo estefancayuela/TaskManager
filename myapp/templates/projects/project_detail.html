@@ -7,7 +7,7 @@
 {% block content %}
     <section>
         <header>
-            <a href="{% url 'all_projects' %}"><img src="{% static 'arrow_white.png' %}" alt="Arrow White"></a>
+            <a href="{% url 'all_projects' %}"><img src="{% static 'img/arrow_white.png' %}" alt="Arrow White"></a>
             <h1>{{ project.name }}</h1>
             <form method="POST">
                 {% csrf_token %}
@@ -22,7 +22,7 @@
                         <!-- It won't be at this way at long-->
                         <h2>{{ single_task.title }}</h2>
                     </div>
-                    <a href="{% url 'delete_task' single_task.id %}"><img src="{% static 'trash.png' %}" alt=""></a>
+                    <a href="{% url 'delete_task' single_task.id %}"><img src="{% static 'img/trash.png' %}" alt=""></a>
                 </div>
                 <p>{{ single_task.description }}</p>
                 <hr>
@@ -30,14 +30,14 @@
         </div>
         <div class="done-tasks-container">
             <div class="label-p-container-done-tasks">
-                <label for="show-done-tasks">Show done tasks</label>
+                <label for="show-done-tasks">Show tasks done</label>
                 <p>⌵</p>
             </div>
             <input type="checkbox" id="show-done-tasks">
             <div class="done-tasks">
                 <a href=" {% url 'delete_done_tasks' project.id %} ">
                     <button onclick="return confirm('¿Estás seguro de que quieres eliminar todas las tareas?');">
-                        Delete all done tasks
+                        Delete all tasks done
                     </button>
                 </a>
                 <div class="tasks-done-container-general">
@@ -48,7 +48,7 @@
                                 <!-- It won't be at this way at long-->
                                 <h2>{{ single_task.title }}</h2>
                             </div>
-                            <a href="{% url 'delete_task' single_task.id %}"><img src="{% static 'trash.png' %}" alt=""></a>
+                            <a href="{% url 'delete_task' single_task.id %}"><img src="{% static 'img/trash.png' %}" alt=""></a>
                         </div>
                         <p>{{ single_task.description }}</p>
                         <hr>

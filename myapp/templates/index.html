@@ -3,11 +3,23 @@
 {% block extra_head %}
     <title>Home</title>
     <link rel="stylesheet" href="{% static 'styles/projects.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/index.css' %}">
 {% endblock %}
 {% block content %}
-    <h1>Index</h1>
-    <img src="{% static 'imagen.jpg' %}" alt="" width="100%">
-    <h2>{{title}}</h2>
-    <p>Template Index</p>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti voluptates harum soluta nostrum nulla, corporis blanditiis officiis laudantium molestiae, earum ipsum et modi obcaecati dolorem at ipsam nobis eligendi aperiam quo reprehenderit sapiente. Unde provident earum tempora! Voluptate, ab iusto sunt corporis harum dolores mollitia temporibus ut saepe accusamus tenetur quia veniam. Fuga non enim quis quas sapiente accusamus eius architecto omnis veritatis quae quia eum excepturi, quos dolor nemo fugiat error ullam eligendi pariatur voluptas reiciendis quam voluptatibus corporis. Ab nesciunt sit fuga inventore deserunt ullam, accusamus quis adipisci ut debitis similique. Necessitatibus laudantium ullam architecto repellendus placeat amet!</p>
+<section>
+    <h1>Welcome to your Task Manager</h1>
+    <h2>First steps</h2>
+    <p>To get started, navigate to the <b>My Projects</b> page where you can create a new project.</p>
+    <img src="{% static 'img/readme/first-steps.png' %}" alt="Screenshot of the first steps">
+    <p>Once your new project is saved, you will be redirected to the Projects page, where you will see your newly created project.</p>
+    <p>Click on the project name to enter it. Once inside, you can create new tasks related to the project.</p>
+    <img src="{% static 'img/readme/project-detail.png' %}" alt="Screenshot of the project details page">
+    <p>When creating a task within a project, you are required to give it a name. The description is optional.</p>
+    <img src="{% static 'img/readme/new-task.png' %}" alt="Screenshot of the create task page">
+    <p>After creating the task, you will be taken to your project page, where your task will be waiting for you.</p>
+    <img src="{% static 'img/readme/project-with-task.png' %}" alt="Project with task Screenshot">
+    <p>On every page except the main page, you will find a back arrow. This arrow allows you to return to the previous page.</p>
+    <img src="{% static 'img/arrow_white.png' %}" alt="Arrow to go back">
+
+</section>
 {% endblock %}
