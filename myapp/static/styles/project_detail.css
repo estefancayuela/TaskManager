@@ -4,13 +4,20 @@ section{
 }
 header{
     padding-top: 25px;
+    margin-bottom: 10px;
 }
 header h1{
     font-size: 35px;
     color: #f0c46f;
-    margin-bottom: 0.5em;
     display: inline;
     margin-right: 10px;
+}
+header img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    display: block;
+    margin-left: -10%;
 }
 .tasks{
     padding-left: 10px;
@@ -28,11 +35,133 @@ header h1{
     color: #f8de88;
     font-size: 30px;
 }
+.tasks p{
+    margin-left: 10px;
+}
 div img{
     margin-left: 10px;
+    margin-right: 10px;
     width: 30px;
     height: 30px;
 }
-.tasks p{
+.checkbox-empty{
+    width: 20px;
+    height: 20px;
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+    cursor: pointer;
+    background-color: rgb(0, 0, 0, 0);
+    border: 2px solid #f8de88;
+}
+.done-tasks-container{
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 30px;
+}
+.label-p-container-done-tasks{
+    display: inline;
+    align-items: center;
+}
+.label-p-container-done-tasks label{
+    display: inline;
+    align-items: center;
+    cursor: pointer;
+    color: #727272;
+    margin-right: 5px;
+}
+.label-p-container-done-tasks p{
+    display: inline-block;
+    align-items: center;
+    font-size: 20px;
+    color: #727272;
+    transform: rotate(-90deg)
+}
+#show-done-tasks{
+    display: none;
+}
+.done-tasks{
+    display: none;
+    margin-top: 20px;
+}
+#show-done-tasks:checked ~ .done-tasks {
+    display:block;
+}
+hr{
+    margin-right: 5px;
+    border: none;
+    background-color: #333;
+    height: 2px;
+}
+form button{
+    margin: 15px;
+    background-color: rgb(0, 0, 0, 0);
+    border: solid 1px #f8de88;
+    cursor: pointer;
+    font-size: 15px;
+    color: #fff8a1;
+}
+form button:hover{
+    background-color: #f8de88;
+    color: #000;
+}
+.tasks-done-container-general{
+    padding-left: 10px;
+    margin-left: 20px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.tasks-done-container-general div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tasks-done-container-general h2{
+    display: inline;
+    color: #756940;
+    font-size: 30px;
+}
+.tasks-done-container-general p{
     margin-left: 10px;
+}
+.done-tasks button{
+    margin: 15px;
+    background-color: rgb(0, 0, 0, 0);
+    border: solid 1px #f88888;
+    cursor: pointer;
+    font-size: 15px;
+    color: #ffa1a1;
+}
+.done-tasks button:hover{
+    background-color: #f88888;
+    color: #000;
+}
+.create-task{
+    max-width: 600px;
+    display: flex;
+    justify-content: center;
+}
+.create-form{
+    display: block;
+    justify-content: center;
+    width: 50%;
+    margin-top: 10px;
+}
+.create-form div{
+    display: block;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.create-form input, .create-form textarea{
+    width: 90%;
+    margin-left: 10px;
+    background-color: #333;
+    color: white;
+    border: 2px solid #000;
+    padding: 2px;
+    margin-top: 5px;
+}
+.create-task, .create-project{
+    width: fit-content;
 }

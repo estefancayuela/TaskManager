@@ -7,36 +7,54 @@
 {% block content %}
     <section>
         <header>
+            <a href="{% url 'all_projects' %}"><img src="{% static 'arrow_white.png' %}" alt="Arrow White"></a>
             <h1>{{ project.name }}</h1>
-            <p><a href="{% url 'all_projects' %}">Back</a></p>
+            <form method="POST">
+                {% csrf_token %}
+                <button>Add New Task</button>
+            </form>
         </header>
         <div class="tasks">
             {% for single_task in task_filtered %}
                 <div>
                     <div>
+                        <input type="checkbox" class="checkbox-empty" onchange="window.location.href='../done_task/{{single_task.id}}';">
+                        <!-- It won't be at this way at long-->
                         <h2>{{ single_task.title }}</h2>
-                        <a href="{% url 'done_task' single_task.id %}"><img src="{% static 'check.png' %}" alt=""></a>
                     </div>
                     <a href="{% url 'delete_task' single_task.id %}"><img src="{% static 'trash.png' %}" alt=""></a>
                 </div>
                 <p>{{ single_task.description }}</p>
+                <hr>
             {% endfor %}
         </div>
-        <form method="POST">
-            {% csrf_token %}
-            <button>New task</button>
-        </form>
-        <label><input type="checkbox"> Show done tasks</label>
-        <a href=" {% url 'delete_done_tasks' project.id %} ">
-            <button onclick="return confirm('¿Estás seguro de que quieres eliminar todas las tareas?');">
-                Delete all done tasks
-            </button>
-        </a>
-        {% for single_task in task_done %}
-            <b><p>{{ single_task.title }}</p></b>
-            <p>{{ single_task.description }}</p>
-            <a href="{% url 'done_task' single_task.id %}"><button>Undone</button></a>
-            <a href="{% url 'delete_task' single_task.id %}"><button>Delete</button></a>
-        {% endfor %}
+        <div class="done-tasks-container">
+            <div class="label-p-container-done-tasks">
+                <label for="show-done-tasks">Show done tasks</label>
+                <p>⌵</p>
+            </div>
+            <input type="checkbox" id="show-done-tasks">
+            <div class="done-tasks">
+                <a href=" {% url 'delete_done_tasks' project.id %} ">
+                    <button onclick="return confirm('¿Estás seguro de que quieres eliminar todas las tareas?');">
+                        Delete all done tasks
+                    </button>
+                </a>
+                <div class="tasks-done-container-general">
+                    {% for single_task in task_done %}
+                        <div>
+                            <div>
+                                <input type="checkbox" class="checkbox-empty" onchange="window.location.href='../done_task/{{single_task.id}}';" checked>
+                                <!-- It won't be at this way at long-->
+                                <h2>{{ single_task.title }}</h2>
+                            </div>
+                            <a href="{% url 'delete_task' single_task.id %}"><img src="{% static 'trash.png' %}" alt=""></a>
+                        </div>
+                        <p>{{ single_task.description }}</p>
+                        <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock %}

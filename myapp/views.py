@@ -13,8 +13,6 @@ def index(request):
 #PROJECTS
 def projects(request):
     project_list=list(Project.objects.values())
-    if project_list == []:
-        return render(request, 'projects/projects.html', {'project_list': project_list, 'message': 'No projects yet'})
     return render (request, 'projects/projects.html', {'project_list': project_list})
 
 def create_project(request):

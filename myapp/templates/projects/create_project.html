@@ -1,12 +1,23 @@
 {% extends 'layouts/base.html' %}
-    {% block content %}
+{% load static %}
+{% block extra_head %}
+<title>Projects</title>
+<link rel="stylesheet" href="{% static 'styles/project_detail.css' %}">
+{% endblock %}
+{% block content %}
+<section>
+    <header>
+        <a href="{% url 'all_projects' %}"><img src="{% static 'arrow_white.png' %}" alt="Arrow White"></a>
         <h1>Create a new project</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form.as_p }}
-            <button>
-                Save
-            </button>
-        </form>
-
-    {% endblock %}
+    </header>
+    <div class="tasks create-project">
+        <form method="post" class="create-form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>
+            Save
+        </button>
+    </form>
+    </div>
+</section>
+{% endblock %}
